@@ -3,7 +3,9 @@ import Calender from './components/Calender';
 import './App.css'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  let date = new Date();
+  const [year, setYear] = useState(date.getFullYear());
+  const [monthIndex, setMonthIndex] = useState(date.getMonth());
 
   return (
     <div className="App w-screen h-screen flex flex-col">
@@ -11,7 +13,7 @@ function App() {
       <div className="content-wrapper w-screen h-full flex">
         <div className="slider border-r-2 border-[#dadce0] h-full w-64"></div>
         <div className="content grow h-full">
-          <Calender />
+          <Calender year={year} monthIndex={monthIndex} />
         </div>
       </div>
     </div>
