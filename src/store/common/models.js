@@ -5,7 +5,10 @@ export const common = {
   reducers: {
     // handle state changes with pure functions
     setDate(state, payload) {
-      return state.date = payload;
+      return {
+        ...state,
+        date: payload,
+      }
     },
   },
   effects: (dispatch) => ({

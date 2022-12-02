@@ -8,8 +8,6 @@ import './App.css'
 function App() {
   const date = useSelector((state) => state.common.date);
 
-  console.log(date);
-
   return (
     <div className="App w-screen h-screen flex flex-col">
       <Header />

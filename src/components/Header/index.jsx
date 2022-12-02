@@ -1,8 +1,17 @@
-import React from "react"
+import React from "react";
+import { useSelector } from "react-redux";
+import { addMonths } from "date-fns";
+import store from "../../store/store";
 
 const Header = () => {
+  const date = useSelector((state) => state.common.date);
+
   const onMenuClick = () => {
     console.log("onMenuClick");
+  };
+
+  const onChangeUnitClick = (increment) => {
+    store.dispatch({ type: "common/setDate", payload: addMonths(date, increment) });
   };
 
   return (
@@ -19,10 +28,10 @@ const Header = () => {
           <span>Today</span>
         </button>
         <div className="ml-4">
-          <button className="w-8 h-10">
+          <button className="w-8 h-10" onClick={() => onChangeUnitClick(-1)}>
             <i className="fa-solid fa-chevron-left fa-lg"></i>
           </button>
-          <button className="w-8 h-10">
+          <button className="w-8 h-10" onClick={() => onChangeUnitClick(1)}>
             <i className="fa-solid fa-chevron-right fa-lg"></i>
           </button>
         </div>

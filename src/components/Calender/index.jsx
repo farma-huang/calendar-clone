@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import ProtoTypes from "prop-types";
 import { buildWeeks } from "./generator";
 import { getDate } from "date-fns";
 import './style.scss';
 
-// const Calender = ({ initYear, initMonthIndex, ...props }) => {
-//   const [year, setYear] = useState(initYear);
-//   const [monthIndex, setMonthIndex] = useState(initMonthIndex);
 const Calender = ({ year, monthIndex, ...props }) => {
   const dates = ["Sun", "Mon", "Tue", "Web", "Thr", "Fri", "Sat"];
   const weeks = buildWeeks(year, monthIndex)  
@@ -32,9 +28,5 @@ const Calender = ({ year, monthIndex, ...props }) => {
     </table>
   );
 };
-
-// Calender.protoTypes = {
-
-// };
 
 export default Calender;
