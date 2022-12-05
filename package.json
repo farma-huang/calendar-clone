@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
     "@rematch/core": "^2.2.0",
     "date-fns": "^2.29.3",
     "lodash": "^4.17.21",

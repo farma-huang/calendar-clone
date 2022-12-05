@@ -8,10 +8,15 @@ const Header = () => {
 
   const onMenuClick = () => {
     console.log("onMenuClick");
+    store.dispatch({ type: "common/setDateAsync", payload: "test" });
   };
 
   const onChangeUnitClick = (increment) => {
     store.dispatch({ type: "common/setDate", payload: addMonths(date, increment) });
+  };
+
+  const onTodayClick = () => {
+    store.dispatch({ type: "common/setDate", payload: new Date() });
   };
 
   return (
@@ -23,8 +28,8 @@ const Header = () => {
         <i className="fa-solid fa-calendar-days fa-2xl mx-2"></i>
         <span className="leading-10">Calendar</span>
       </div>
-      <div className="h-10 ml-2 mt-1 flex justify-start items-center">
-        <button className="w-16 h-10 rounded-lg border-solid border border-black rounded-4 hover:bg-gray-300" onClick={onMenuClick}>
+      <div className="h-10 mt-1 flex justify-start items-center">
+        <button className="w-16 h-10 rounded-lg border-solid border border-black rounded-4 hover:bg-gray-300" onClick={onTodayClick}>
           <span>Today</span>
         </button>
         <div className="ml-4">
@@ -34,6 +39,9 @@ const Header = () => {
           <button className="w-8 h-10" onClick={() => onChangeUnitClick(1)}>
             <i className="fa-solid fa-chevron-right fa-lg"></i>
           </button>
+        </div>
+        <div className="ml-1">
+          <span>{`${date.getFullYear()}-${date.getMonth()+1}`}</span>
         </div>
       </div>
     </div>
